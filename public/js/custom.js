@@ -23,13 +23,13 @@ $(document).ready(function () {
                     tr.append($("<td>").html(value.imagePath));
                     tr.append(
                         "<td align='center'><a href='#' data-bs-toggle='modal' data-bs-target='#editModal' id='editbtn' data-id=" +
-                            id +
-                            "><i class='fa fa-pencil' aria-hidden='true' style='font-size:24px' ></a></i></td>"
+                        id +
+                        "><i class='fa fa-pencil' aria-hidden='true' style='font-size:24px' ></a></i></td>"
                     );
                     tr.append(
                         "<td><a href='#'  class='deletebtn' data-id=" +
-                            id +
-                            "><i  class='fa fa-trash' style='font-size:24px; color:red' ></a></i></td>"
+                        id +
+                        "><i  class='fa fa-trash' style='font-size:24px; color:red' ></a></i></td>"
                     );
 
                     $("#ibody").append(tr);
@@ -66,13 +66,13 @@ $(document).ready(function () {
                 tr.append($("<td>").html(value.phone));
                 tr.append(
                     "<td align='center'><a href='#' data-bs-toggle='modal' data-bs-target='#editModal' id='editbtn' data-id=" +
-                        id +
-                        "><i class='fa fa-pencil' aria-hidden='true' style='font-size:24px' ></a></i></td>"
+                    id +
+                    "><i class='fa fa-pencil' aria-hidden='true' style='font-size:24px' ></a></i></td>"
                 );
                 tr.append(
                     "<td><a href='#'  class='deletebtn' data-id=" +
-                        id +
-                        "><i  class='fa fa-trash' style='font-size:24px; color:red' ></a></i></td>"
+                    id +
+                    "><i  class='fa fa-trash' style='font-size:24px; color:red' ></a></i></td>"
                 );
 
                 $("#cbody").append(tr);
@@ -112,10 +112,10 @@ $(document).ready(function () {
                 tr.append($("<td>").html(data.phone));
                 tr.append(
                     "<td align='center'><a href=" +
-                        "/api/customer/" +
-                        data.customer_id +
-                        "/edit" +
-                        "><i class='fa fa-pencil' aria-hidden='true' style='font-size:24px' ></a></i></td>"
+                    "/api/customer/" +
+                    data.customer_id +
+                    "/edit" +
+                    "><i class='fa fa-pencil' aria-hidden='true' style='font-size:24px' ></a></i></td>"
                 );
                 $("#ctable").prepend(tr);
                 // });

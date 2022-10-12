@@ -8013,7 +8013,6 @@
         "facade/flare-client-php",
         "facade/ignition",
         "facade/ignition-contracts",
-        "fakerphp/faker",
         "filp/whoops",
         "hamcrest/hamcrest-php",
         "laravel/sail",

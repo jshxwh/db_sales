@@ -16,7 +16,7 @@ class ItemController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()){
-            $items = Item::orderBy('description')->get();
+            $items = Item::orderBy('item_id')->get();
             return response()->json($items);
         }
     }
