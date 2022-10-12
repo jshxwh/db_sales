@@ -1059,3 +1059,7 @@
 #55 C:\\Users\\Administrator\\Documents\\Cods\\server.php(21): require_once('C:\\\\Users\\\\Admini...')
 #56 {main}
 "} 
+[2022-10-12 03:04:28] local.ERROR: syntax error, unexpected ''"item";' (T_ENCAPSED_AND_WHITESPACE) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected ''\"item\";' (T_ENCAPSED_AND_WHITESPACE) at C:\\Users\\Administrator\\Documents\\Cods\\app\\Models\\Item.php:11)
+[stacktrace]
+#0 {main}
+"} 

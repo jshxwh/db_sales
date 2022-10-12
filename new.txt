@@ -1,0 +1,113 @@
+<div id="items" class="container">
+     <button type="button" class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#itemModal"  >add<span  class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+  <div  class="table-responsive">
+    <table id="itable" class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>item ID</th>
+          <th>Image</th>
+          <th>description</th>
+          <th>sell price</th>
+          <th>cost price</th>
+          <th>Edit</th>
+          <th>Delete</th>
+          </tr>
+      </thead>
+      <tbody id="ibody">
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="modal fade" id="itemModal" role="dialog" style="display:none">
+  <div class="modal-dialog modal-lg" >
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Create new item</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+          <div class="modal-body">
+            <form id="iform" method="#" action="#" enctype="multipart/form-data">
+             <div class="form-group">
+                  <label for="desc" class="control-label">Description</label>
+                  <input type="text" class="form-control" id="desc" name="description"  >
+             </div>
+             <div class="form-group"> 
+                <label for="sell" class="control-label">sell price</label>
+                <input type="text" class="form-control " id="sell" name="sell_price">
+              </div>
+              <div class="form-group"> 
+                <label for="cost" class="control-label">Cost Price</label>
+                <input type="text" class="form-control " id="cost" name="cost_price" >
+              </div>
+              <div class="form-group"> 
+                <label for="image" class="control-label">Image</label>
+                <input type="file" class="form-control" id="image" name="uploads" />
+               </div>
+            </form>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button id="itemSubmit" type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+  </div>
+</div>
+    $('#itemModal').on('show.bs.modal', function(e) {
+    var id = $(e.relatedTarget).attr('data-id');
+    // console.log(id);
+    $('<input>').attr({type: 'hidden', id:'itemid',name: 'item_id',value: id}).appendTo('#iform');
+    $.ajax({
+        type: "GET",
+        url: "/api/item/" + id + "/edit",
+        success: function(data){
+               // console.log(data);
+               $("#desc").val(data.description);
+               $("#sell").val(data.sell_price);
+               $("#cost").val(data.cost_price);
+               $("#image").val(data.img_path);
+          },
+         error: function(){
+          console.log('AJAX load did not work');
+          alert("error");
+          }
+      });
+});
+$("#itemSubmit").on('click', function(e) {
+    // e.preventDefault();
+    // alert("test");
+    var id = $('#itemid').val();
+    // var data = $("#updateform").serialize();
+    var data = $('#iform')[0];
+    // console.log(data);
+    let formData = new FormData($('#iform')[0]);
+    // console.log(data);
+    $.ajax({
+        type: "PUT",
+        url: "/api/item/"+ id,
+        data: formData,
+        contentType: false,
+        processData: false,
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        dataType: "json",
+        success: function(data) {
+            console.log(data);
+            $('#itemModal').each(function(){
+                    $(this).modal('hide'); 
+              });
+            $("tr td:contains("+id+")").remove();
+            var img = "<img src="+data.img_path +" width='200px', height='200px'/>";
+            var tr = $("<tr>");
+            tr.append($("<td>").html(data.item_id));
+            tr.append($("<td>").html(img));
+            tr.append($("<td>").html(data.description));
+            tr.append($("<td>").html(data.sell_price));
+            tr.append($("<td>").html(data.cost_price));
+            tr.append("<td align='center'><a href='#' data-bs-toggle='modal' data-bs-target='#itemModal' id='editbtn' data-id="+ data.item_id + "><i class='fa fa-pencil-square-o' aria-hidden='true' style='font-size:24px' ></a></i></td>");
+            tr.append("<td><a href='#'  class='deletebtn' data-id="+ data.item_id + "><i  class='fa fa-trash-o' style='font-size:24px; color:red' ></a></i></td>");
+            $('#itable').prepend(tr.hide().fadeIn(5000));
+        },
+        error: function(error) {
+            console.log('error');
+        }
+    });
+});

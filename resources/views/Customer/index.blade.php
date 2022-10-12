@@ -22,9 +22,11 @@
 
 </head>
 <body>
-    <div class="container">
+    <div id="customers" class="container">
 
        <button type="button" class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#myModal"  >Add <span  class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+
+       <button type="button" class="btn btn-info btn-lg" id="item">Add<span  class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 
         <div  class="table-responsive">
             <table id="ctable" class="table table-striped table-hover">
@@ -109,6 +111,138 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="editModal" role="dialog" style="display:none">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">edit new customer</h4>
+
+                        <div class="modal-body">
+                            <form id="updateform" action="#" >
+                                <div class="form-group">
+                                    <label for="title" class="control-label">Title</label>
+                                    <input type="text" class="form-control" id="etitle" name="etitle">
+                                </div> 
+                                <div class="form-group">
+                                    <label for="title" class="control-label">UserId</label>
+                                    <input type="text" class="form-control" id="euserid" name="user_id">
+                                </div> 
+                                <div class="form-group"> 
+                                    <label for="lname" class="control-label">last name</label>
+                                    <input type="text" class="form-control " id="elname" name="lname"></text>
+                                </div> 
+                                <div class="form-group"> 
+                                    <label for="fname" class="control-label">First Name</label>
+                                    <input type="text" class="form-control " id="efname" name="fname">
+                                </div>
+                                <div class="form-group"> 
+                                    <label for="address" class="control-label">Address</label>
+                                    <input type="text" class="form-control" id="eaddress" name="addressline">
+                                </div>
+                                <div class="form-group"> 
+                                    <label for="town" class="control-label">Town</label>
+                                    <input type="text" class="form-control" id="etown" name="town">
+                                </div>
+                                <div class="form-group"> 
+                                    <label for="zipcode" class="control-label">Zip code</label>
+                                    <input type="text" class="form-control" id="ezipcode" name="zipcode">
+                                </div>
+                                <div class="form-group"> 
+                                    <label for="phone" class="control-label">Phone</label>
+                                    <input type="text" class="form-control" id="ephone" name="phone">
+                                </div>
+                                <div class="form-group"> 
+                                    <label for="zipcode" class="control-label">Credit</label>
+                                    <input type="text" class="form-control" id="ecredit" name="creditlimit">
+                                </div>
+                                <div class="form-group"> 
+                                    <label for="phone" class="control-label">level</label>
+                                    <input type="text" class="form-control" id="elevel" name="level">
+                                </div>
+                            </form> 
+                        </div>
+               
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                  <button id="updatebtn" type="submit" class="btn btn-primary">Save</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="items" class="container">
+
+        <button type="button" class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#itemModal"  >add<span  class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+
+        <button type="button" class="btn btn-info btn-lg" id="customerbtn">add<span  class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+
+     <div  class="table-responsive">
+       <table id="itable" class="table table-striped table-hover">
+         <thead>
+           <tr>
+             <th>Item ID</th>
+             <th>Description</th>
+             <th>Sell price</th>
+             <th>Cost price</th>
+             <th>Title</th>
+             <th>Image</th>
+             <th>Edit</th>
+             <th>Delete</th>
+             </tr>
+         </thead>
+         <tbody id="ibody">
+         </tbody>
+       </table>
+     </div>
+   </div>
+
+   <div class="modal fade" id="itemModal" role="dialog" style="display:none">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Create new item</h4>
+
+                    <div class="modal-body">
+                        <form id="updateform" action="#" >
+                            <div class="form-group">
+                                <label for="title" class="control-label">Desc</label>
+                                <input type="text" class="form-control" id="description" name="description">
+                            </div> 
+                            <div class="form-group">
+                                <label for="title" class="control-label">CostPrice</label>
+                                <input type="text" class="form-control" id="cost_price" name="cost_price">
+                            </div> 
+                            <div class="form-group"> 
+                                <label for="lname" class="control-label">SellPrice</label>
+                                <input type="text" class="form-control " id="sell_price" name="sell_price"></text>
+                            </div> 
+                            <div class="form-group"> 
+                                <label for="fname" class="control-label">Title</label>
+                                <input type="text" class="form-control " id="title" name="title">
+                            </div>
+                            <div class="form-group"> 
+                                <label for="address" class="control-label">Item Image</label>
+                                <input type="text" class="form-control" id="imagePath" name="imagePath">
+                            </div>
+                        </form> 
+                    </div>
+           
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+              <button id="updatebtn" type="submit" class="btn btn-primary">Save</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
