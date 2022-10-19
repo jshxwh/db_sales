@@ -1,4 +1,56 @@
 $(document).ready(function () {
+    $("#itable").DataTable({
+        ajax: {
+            url: "/api/item",
+            dataSrc: "",
+        },
+        dom: "Bfrtip",
+        buttons: [
+            "pdf",
+            "excel",
+            {
+                text: "Add Item",
+                className: "btn btn-primary",
+                action: function (e, dt, node, config) {
+                    $("#iform").trigger("reset");
+                    $("#itemModal").modal("show");
+                },
+            },
+        ],
+        columns: [{
+                data: "item_id",
+            },
+            // {
+            //     data: 'null',
+            //     render : function{data, type, row}   
+            // },
+            {
+                data: "description",
+            },
+
+            {
+                data: "sell_price",
+            },
+            {
+                data: "cost_price",
+            },
+            {
+                data: "title",
+            },
+            // {
+            //     data: "imagePath",
+            // },
+            {
+                data: null,
+                render: function (data, type, row) {
+                    return "<a href='#' data-bs-toggle='modal' data-bs-target='#editModal' id='editbtn' data-id=" +
+                        data.item_id +
+                        "><i class='fa-solid fa-pen' aria-hidden='true' style='font-size:24px' ></i></a><a href='#' class='deletebtn' data-id=" + data.item_id + "><i class='fa-regular fa-trash-can' style='font-size:24px; color:red'></a></i>";
+                },
+            },
+        ],
+    });
+
     $("#items").hide();
     $("#item").on("click", function (e) {
         e.preventDefault();

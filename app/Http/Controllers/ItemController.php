@@ -15,12 +15,15 @@ class ItemController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->ajax()){
+        // if ($request->ajax()){
             $items = Item::orderBy('item_id')->get();
             return response()->json($items);
-        }
+        // }
     }
 
+    public function getItem (){
+        return view('Item.index');
+    }
     /**
      * Show the form for creating a new resource.
      *
