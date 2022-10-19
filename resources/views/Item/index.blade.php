@@ -1,5 +1,26 @@
 @extends('layouts.base')
 @section('body')
+    <style>
+        * {
+            margin-top: 10px;
+        }
+
+        .left-col {
+            float: left;
+            width: 25%;
+        }
+
+        .center-col {
+            float: left;
+            width: 50%;
+        }
+
+        .right-col {
+            float: left;
+            width: 25%;
+        }
+    </style>
+
     <div class="container">
 
         {{-- <button type="button" class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#itemModal">New

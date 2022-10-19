@@ -4,13 +4,18 @@ $(document).ready(function () {
             url: "/api/item",
             dataSrc: "",
         },
-        dom: "Bfrtip",
-        buttons: [
-            "pdf",
-            "excel",
+        dom: '<"top"<"left-col"B><"center-col"l><"right-col"f>>rtip',
+        buttons: [{
+                extend: 'pdf',
+                className: 'btn btn-success glyphicon glyphicon-file'
+            },
+            {
+                extend: 'excel',
+                className: 'btn btn-success glyphicon glyphicon-list-alt'
+            },
             {
                 text: "Add Item",
-                className: "btn btn-primary",
+                className: "btn btn-success",
                 action: function (e, dt, node, config) {
                     $("#iform").trigger("reset");
                     $("#itemModal").modal("show");
@@ -20,10 +25,6 @@ $(document).ready(function () {
         columns: [{
                 data: "item_id",
             },
-            // {
-            //     data: 'null',
-            //     render : function{data, type, row}   
-            // },
             {
                 data: "description",
             },
@@ -37,9 +38,12 @@ $(document).ready(function () {
             {
                 data: "title",
             },
-            // {
-            //     data: "imagePath",
-            // },
+            {
+                data: 'imagePath',
+                render: function (data, type, row) {
+                    return '<img src="' + data + '" height="50" width="50"/>';
+                }
+            },
             {
                 data: null,
                 render: function (data, type, row) {
