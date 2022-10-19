@@ -22,5 +22,4 @@ Route::get('/customer/all',['uses' => 'CustomerController@getCustomerAll','as' =
 
 Route::resource('customer', 'CustomerController');
 
-
 Route::resource('item', 'ItemController');
