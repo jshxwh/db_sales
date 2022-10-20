@@ -60,7 +60,7 @@ class ItemController extends Controller
         $item->save();
 
         $data = array('status' => 'saved');
-        Storage::put('public/images/'.time().'-'.$files->getClientOriginalName(), file_get_contents($files));
+        Storage::put('images/'.time().'-'.$files->getClientOriginalName(), file_get_contents($files));
 
         return response()->json(["success" => "Item Created Successfully.", "item" => $item, "status" => 200]);
 

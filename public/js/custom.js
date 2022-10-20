@@ -59,11 +59,10 @@ $(document).ready(function () {
         e.preventDefault();
         var data = $('#iform')[0];
         console.log(data);
-        let formData = new FormData($('#iform')[0]);
-
+        let formData = new FormData(data);
         console.log(formData);
         for (var pair of formData.entries()) {
-            console.log(pair[0] + ',' + pair[0]);
+            console.log(pair[0] + ',' + pair[1]);
         }
 
         $.ajax({
@@ -80,7 +79,7 @@ $(document).ready(function () {
                 console.log(data);
                 $('#itemModal').modal("hide");
                 var $itable = $('#itable').DataTable();
-                $itable.row.add(data).draw(false);
+                $itable.row.add(data.item).draw(false);
             },
             error: function (error) {
                 console.log(error)
