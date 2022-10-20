@@ -88,6 +88,55 @@ $(document).ready(function () {
 
     });
 
+    $("#itable tbody").on("click", 'a.deletebtn', function (e) {
+
+        var table = $('#itable').DataTable();
+        var id = $(this).data("id");
+        var $row = $(this).closest("tr");
+
+        console.log(id);
+        e.preventDefault();
+        bootbox.confirm({
+            message: "do you want to delete this item",
+            buttons: {
+                confirm: {
+                    label: "yes",
+                    className: "btn-success",
+                },
+                cancel: {
+                    label: "no",
+                    className: "btn-danger",
+                },
+            },
+            callback: function (result) {
+                console.log(result);
+                if (result)
+                    $.ajax({
+                        type: "DELETE",
+                        url: "/api/item/" + id,
+                        headers: {
+                            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                                "content"
+                            ),
+                        },
+                        dataType: "json",
+                        success: function (data) {
+                            console.log(data);
+                            // bootbox.alert('success');
+                            $row.fadeOut(4000, function () {
+                                table.row($row).remove().draw(false);
+                            });
+                            bootbox.alert(data.success);
+                        },
+                        error: function (error) {
+                            console.log("error");
+                        },
+                    });
+            },
+        });
+    });
+
+
     $("#items").hide();
     $("#item").on("click", function (e) {
         e.preventDefault();

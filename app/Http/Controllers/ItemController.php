@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Item;
 use Illuminate\Support\Facades\Storage;
 use View;
+use File;
 
 class ItemController extends Controller
 {
@@ -108,6 +109,17 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $item = Item::findOrFail($id);
+
+        // $fullImgPath = storage_path("public/storage/".$item->imagePath);
+        // if(File::exists($fullImgPath)) {
+        // File::delete($fullImgPath);
+        // }
+
+        $item->delete();
+
+        $data = array('success' =>'deleted','code'=>'200');
+        return response()->json($data);
     }
 }
