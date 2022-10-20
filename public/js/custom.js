@@ -41,7 +41,7 @@ $(document).ready(function () {
             {
                 data: null,
                 render: function (data, type, JsonResultRow, row) {
-                    return '<img src="public/storage/' + JsonResultRow.imagePath + '">';
+                    return '<img src="/storage/' + JsonResultRow.imagePath + '" height="50px" width="50px">';
                 }
             },
             {
