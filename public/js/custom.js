@@ -41,13 +41,13 @@ $(document).ready(function () {
             {
                 data: null,
                 render: function (data, type, JsonResultRow, row) {
-                    return '<img src="/storage/' + JsonResultRow.imagePath + '" height="50px" width="50px">';
+                    return '<img src="/storage/' + JsonResultRow.imagePath + '" height="100px" width="100px">';
                 }
             },
             {
                 data: null,
                 render: function (data, type, row) {
-                    return "<a href='#' data-bs-toggle='modal' data-bs-target='#editModal' id='editbtn' data-id=" +
+                    return "<a href='#' class='editBtn' id='editbtn' data-id=" +
                         data.item_id +
                         "><i class='fa-solid fa-pen' aria-hidden='true' style='font-size:24px' ></i></a><a href='#' class='deletebtn' data-id=" + data.item_id + "><i class='fa-solid fa-trash-can' style='font-size:24px; color:red; margin-left:15px;'></a></i>";
                 },
@@ -135,6 +135,68 @@ $(document).ready(function () {
             },
         });
     });
+
+    $("#itable tbody").on("click", 'a.editBtn', function (e) {
+        e.preventDefault();
+        $('#itemModal').modal('show');
+        var id = $(this).data("id");
+
+        $.ajax({
+            type: "GET",
+            url: "/api/item/" + id + "/edit",
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                    "content"
+                ),
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                $('#item_id').val(data.item_id);
+                $('#description').val(data.description);
+                $('#cost_price').val(data.cost_price);
+                $('#sell_price').val(data.sell_price);
+                $('#title').val(data.title);
+            },
+            error: function (error) {
+                console.log("error");
+            },
+        });
+    });
+
+    $("#itemupdate").on("click", function (e) {
+        e.preventDefault();
+        // var id = $(e.relatedTarget).attr("data-id");
+        var id = $("#item_id").val();
+        console.log(id);
+
+        var crow = $("tr td:contains(" + id + ")").closest("tr");
+        var table = $('#itable').DataTable();
+        var data = $("#iform").serialize();
+
+        $.ajax({
+            type: "PUT",
+            url: "/api/item/" + id,
+            data: data,
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                    "content"
+                ),
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                $('#itemModal').modal("hide");
+                table.row(crow).data(data).invalidate().draw(false);
+            },
+            error: function (error) {
+                console.log(error);
+            },
+        });
+    });
+
+
+
 
 
     $("#items").hide();

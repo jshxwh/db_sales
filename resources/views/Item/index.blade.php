@@ -59,6 +59,9 @@
                     <div class="modal-body">
                         <form id="iform" action="#" method="#" enctype="multipart/form-data">
                             <div class="form-group">
+                                <input type="hidden" class="form-control item_id" id="item_id" name="item_id">
+                            </div>
+                            <div class="form-group">
                                 <label for="title" class="control-label">Description</label>
                                 <input type="text" class="form-control" id="description" name="description">
                             </div>
@@ -85,7 +88,8 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
-                    <button id="itemSubmit" type="submit" class="btn btn-primary">Save</button>
+                    {{-- <button id="itemSubmit" type="submit" class="btn btn-primary">Save</button> --}}
+                    <button id="itemupdate" type="submit" class="btn btn-primary">Update</button>
                 </div>
 
             </div>

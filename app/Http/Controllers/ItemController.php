@@ -86,7 +86,8 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Item::Find($id);
+        return response()->json($item);
     }
 
     /**
@@ -98,7 +99,11 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item = Item::find($id);
+        $item = $item->update($request->all());
+
+        $item = Item::find($id);
+         return response()->json($item);
     }
 
     /**
@@ -112,10 +117,9 @@ class ItemController extends Controller
 
         $item = Item::findOrFail($id);
 
-        // $fullImgPath = storage_path("public/storage/".$item->imagePath);
-        // if(File::exists($fullImgPath)) {
-        // File::delete($fullImgPath);
-        // }
+        if (File::exists("storage/".$item->imagePath)) {
+            File::delete("storage/".$item->imagePath);
+        }
 
         $item->delete();
 
