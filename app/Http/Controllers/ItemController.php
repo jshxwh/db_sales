@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
+use Illuminate\Support\Facades\Storage;
 use View;
 
 class ItemController extends Controller
@@ -42,7 +43,27 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $item = new Item;
+        $item->description = $request->description;
+        $item->sell_price = $request->sell_price;
+        $item->cost_price = $request->cost_price;
+        $item->title = $request->title;
+
+        // $fileName = time().$request->file('imagePath')->getClientOriginalName();
+        // $path = $request->file('imagePath')->storeAs('images', $fileName, 'public');
+        // $requestData["imagePath"] = '/storage/'.$path;
+        // $item->imagePath = $requestData["imagePath"];
+
+        $files = $request->file('uploads');
+
+        $item->imagePath = 'images/'.time().'-'.$files->getClientOriginalName();
+        $item->save();
+
+        $data = array('status' => 'saved');
+        Storage::put('public/images/'.time().'-'.$files->getClientOriginalName(), file_get_contents($files));
+
+        return response()->json(["success" => "Item Created Successfully.", "item" => $item, "status" => 200]);
+
     }
 
     /**

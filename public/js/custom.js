@@ -39,9 +39,9 @@ $(document).ready(function () {
                 data: "title",
             },
             {
-                data: 'imagePath',
-                render: function (data, type, row) {
-                    return '<img src="' + data + '" height="50" width="50"/>';
+                data: null,
+                render: function (data, type, JsonResultRow, row) {
+                    return '<img src="public/storage/' + JsonResultRow.imagePath + '">';
                 }
             },
             {
@@ -53,6 +53,40 @@ $(document).ready(function () {
                 },
             },
         ],
+    });
+
+    $("#itemSubmit").on("click", function (e) {
+        e.preventDefault();
+        var data = $('#iform')[0];
+        console.log(data);
+        let formData = new FormData($('#iform')[0]);
+
+        console.log(formData);
+        for (var pair of formData.entries()) {
+            console.log(pair[0] + ',' + pair[0]);
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/api/item/",
+            data: formData,
+            contentType: false,
+            processData: false,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                $('#itemModal').modal("hide");
+                var $itable = $('#itable').DataTable();
+                $itable.row.add(data).draw(false);
+            },
+            error: function (error) {
+                console.log(error)
+            }
+        })
+
     });
 
     $("#items").hide();
