@@ -1,9 +1,9 @@
-## Check Commits for easy use
+## Check Commits for easy use or just click these screenshot
 
 
-<p align="center"><a href="https://github.com/jshxwh/db_sales/commits/master" target="_blank"><img src="https://user-images.githubusercontent.com/109658700/196950112-ffc0bef1-67a7-44ff-bff8-6366de2eb045.png" width="400"></a></p>
+<p align="center"><a href="https://github.com/jshxwh/db_sales/commits/master" target="_blank"><img src="https://user-images.githubusercontent.com/109658700/196950112-ffc0bef1-67a7-44ff-bff8-6366de2eb045.png" style="border:5px solid black" width="400"></a></p>
 
-<p align="center"><img src="(https://user-images.githubusercontent.com/109658700/196950692-41d234a7-b1fa-4251-ad85-a7138294f9f3.png" width="400"></a></p>
+<p align="center"><img src="(https://user-images.githubusercontent.com/109658700/196950692-41d234a7-b1fa-4251-ad85-a7138294f9f3.png" style="border:5px solid black" width="400"></p>
 
 
 <p align="center">
