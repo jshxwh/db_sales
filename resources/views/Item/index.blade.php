@@ -58,6 +58,8 @@
 
                     <div class="modal-body">
                         <form id="iform" action="#" method="#" enctype="multipart/form-data">
+                            @csrf
+                            {{-- <input type="hidden" name="itemimage" id="itemimage"> --}}
                             <div class="form-group">
                                 <input type="hidden" class="form-control item_id" id="item_id" name="item_id">
                             </div>
@@ -81,14 +83,17 @@
                                 <label for="address" class="control-label">Item Image</label>
                                 <input type="file" class="form-control" id="imagePath" name="uploads">
                             </div>
+                            {{-- <div class="mt-2" id="imagePath">
+
+                            </div> --}}
                         </form>
                     </div>
 
                 </div>
 
-                <div class="modal-footer">
+                <div class="modal-footer" id="btnss">
                     <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
-                    {{-- <button id="itemSubmit" type="submit" class="btn btn-primary">Save</button> --}}
+                    <button id="itemSubmit" type="submit" class="btn btn-primary">Save</button>
                     <button id="itemupdate" type="submit" class="btn btn-primary">Update</button>
                 </div>
 

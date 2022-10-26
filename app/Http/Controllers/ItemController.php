@@ -101,20 +101,24 @@ class ItemController extends Controller
     {
         $item = Item::find($id);
 
-        $item = Item::find($request->item_id);
-        dd($request->imagePath);
-		if ($request->hasFile('imagePath')) {
-			$file = $request->file('imagePath');
-			$fileName = time().'-'.$file->getClientOriginalName();
-			$file->storeAs('images/', $fileName);
-			if ($item->avatar) {
-				File::delete("storage/".$item->imagePath);
-			}
-		} else {
-			$fileName = $request->imagePath;
-		}
+        // $item = Item::find($request->item_id);
+        // dd($request->imagePath);
+		// if ($request->hasFile('imagePath')) {
+		// 	$file = $request->file('imagePath');
+		// 	$fileName = time().'-'.$file->getClientOriginalName();
+		// 	$file->storeAs('images/', $fileName);
+		// 	if ($item->avatar) {
+		// 		File::delete("storage/".$item->imagePath);
+		// 	}
+		// } else {
+		// 	$fileName = $request->itemimage;
+		// }
 
-        $item = $item->update();
+        $item = $item->update($request->all());
+
+        // $itemdata = ['description' => $request->description, 'cost_price' => $request->cost_price, 'sell_price' => $request->sell_price, 'title' => $request->title, 'imagePath' => $fileName];
+
+		// $item->update($itemdata);
 
         $item = Item::find($id);
 

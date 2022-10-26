@@ -22,3 +22,4 @@ Route::resource('customer', 'CustomerController');
 Route::resource('item', 'ItemController');
 
 route::view('/item-index','Item.Index');    
+route::view('/shop','shop.Index');  

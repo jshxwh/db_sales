@@ -19,6 +19,7 @@ $(document).ready(function () {
                 action: function (e, dt, node, config) {
                     $("#iform").trigger("reset");
                     $("#itemModal").modal("show");
+                    $('#itemupdate').hide();
                 },
             },
         ],
@@ -64,6 +65,7 @@ $(document).ready(function () {
         for (var pair of formData.entries()) {
             console.log(pair[0] + ',' + pair[1]);
         }
+
 
         $.ajax({
             type: "POST",
@@ -140,6 +142,9 @@ $(document).ready(function () {
         e.preventDefault();
         $('#itemModal').modal('show');
         var id = $(this).data("id");
+        var $save = $('#itemSubmit').detach();
+        $('#itemupdate').show();
+        // $('#btnss').append('<button id="itemupdate" type="submit" class="btn btn-primary">Update</button>');
 
         $.ajax({
             type: "GET",
@@ -161,8 +166,9 @@ $(document).ready(function () {
                 $('#cost_price').val(data.cost_price);
                 $('#sell_price').val(data.sell_price);
                 $('#title').val(data.title);
-                $('#uploads').val(data.imagePath);
-                $('#image').val(data.imagePath);
+                // $("#imagepath").html(
+                //     `<img src="/storage/${data.imagePath}" width="100" class="img-fluid img-thumbnail">`);
+                // $('#itemimage').val(data.imagePath);
             },
             error: function (error) {
                 console.log("error");
@@ -182,10 +188,9 @@ $(document).ready(function () {
 
         $.ajax({
             type: "PUT",
-            enctype: 'multipart/form-data',
-            processData: false, // Important!
-            contentType: false,
             cache: false,
+            contentType: false,
+            processData: false,
             url: "/api/item/" + id,
             data: data,
             headers: {
