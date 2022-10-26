@@ -143,6 +143,10 @@ $(document).ready(function () {
 
         $.ajax({
             type: "GET",
+            enctype: 'multipart/form-data',
+            processData: false, // Important!
+            contentType: false,
+            cache: false,
             url: "/api/item/" + id + "/edit",
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
@@ -157,6 +161,8 @@ $(document).ready(function () {
                 $('#cost_price').val(data.cost_price);
                 $('#sell_price').val(data.sell_price);
                 $('#title').val(data.title);
+                $('#uploads').val(data.imagePath);
+                $('#image').val(data.imagePath);
             },
             error: function (error) {
                 console.log("error");
@@ -176,6 +182,10 @@ $(document).ready(function () {
 
         $.ajax({
             type: "PUT",
+            enctype: 'multipart/form-data',
+            processData: false, // Important!
+            contentType: false,
+            cache: false,
             url: "/api/item/" + id,
             data: data,
             headers: {

@@ -100,9 +100,24 @@ class ItemController extends Controller
     public function update(Request $request, $id)
     {
         $item = Item::find($id);
-        $item = $item->update($request->all());
+
+        $item = Item::find($request->item_id);
+        dd($request->imagePath);
+		if ($request->hasFile('imagePath')) {
+			$file = $request->file('imagePath');
+			$fileName = time().'-'.$file->getClientOriginalName();
+			$file->storeAs('images/', $fileName);
+			if ($item->avatar) {
+				File::delete("storage/".$item->imagePath);
+			}
+		} else {
+			$fileName = $request->imagePath;
+		}
+
+        $item = $item->update();
 
         $item = Item::find($id);
+
          return response()->json($item);
     }
 
