@@ -28,3 +28,5 @@ Route::post('/item/checkout',[
     'uses' => 'ItemController@postCheckout',
     'as' => 'checkout'
 ]); 
+
+route::view('/dashboard','dashboard.Index'); 

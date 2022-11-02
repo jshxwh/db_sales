@@ -111,6 +111,7 @@ $(document).ready(function () {
         $('#itemCount').css('display', 'none');
         $('#cartItems').text('');
         $('#cartTotal').text("Total: P" + priceTotal);
+        $('#shoppingCart').css('display', 'none');
 
         // console.log(clone.find(".itemDetails"));
 

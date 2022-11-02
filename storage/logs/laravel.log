@@ -3418,3 +3418,136 @@
 
 )
   
+[2022-11-02 02:44:44] local.INFO: Array
+(
+    [0] => Array
+        (
+            [item_id] => 3
+            [quantity] => 1
+        )
+
+    [1] => Array
+        (
+            [item_id] => 1
+            [quantity] => 3
+        )
+
+)
+  
+[2022-11-02 02:45:10] local.INFO: Array
+(
+    [0] => Array
+        (
+            [item_id] => 3
+            [quantity] => 2
+        )
+
+    [1] => Array
+        (
+            [item_id] => 2
+            [quantity] => 3
+        )
+
+)
+  
+[2022-11-02 02:46:13] local.INFO: Array
+(
+    [0] => Array
+        (
+            [item_id] => 2
+            [quantity] => 2
+        )
+
+    [1] => Array
+        (
+            [item_id] => 3
+            [quantity] => 3
+        )
+
+)
+  
+[2022-11-02 02:46:46] local.INFO: Array
+(
+)
+  
+[2022-11-02 02:47:20] local.INFO: Array
+(
+    [0] => Array
+        (
+            [item_id] => 2
+            [quantity] => 2
+        )
+
+    [1] => Array
+        (
+            [item_id] => 3
+            [quantity] => 3
+        )
+
+)
+  
+[2022-11-02 02:47:37] local.INFO: Array
+(
+    [0] => Array
+        (
+            [item_id] => 1
+            [quantity] => 1
+        )
+
+)
+  
+[2022-11-02 02:48:56] local.INFO: Array
+(
+    [0] => Array
+        (
+            [item_id] => 3
+            [quantity] => 2
+        )
+
+)
+  
+[2022-11-02 02:49:32] local.INFO: Array
+(
+    [0] => Array
+        (
+            [item_id] => 2
+            [quantity] => 2
+        )
+
+)
+  
+[2022-11-02 03:13:17] local.ERROR: Unable to prepare route [customer] for serialization. Another route has already been assigned name [customer.index]. {"exception":"[object] (LogicException(code: 0): Unable to prepare route [customer] for serialization. Another route has already been assigned name [customer.index]. at C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php:218)
+[stacktrace]
+#0 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php(179): Illuminate\\Routing\\AbstractRouteCollection->addToSymfonyRoutesCollection(Object(Symfony\\Component\\Routing\\RouteCollection), Object(Illuminate\\Routing\\Route))
+#1 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteCollection.php(246): Illuminate\\Routing\\AbstractRouteCollection->toSymfonyRouteCollection()
+#2 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php(163): Illuminate\\Routing\\RouteCollection->toSymfonyRouteCollection()
+#3 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php(134): Illuminate\\Routing\\AbstractRouteCollection->dumper()
+#4 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\RouteCacheCommand.php(107): Illuminate\\Routing\\AbstractRouteCollection->compile()
+#5 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\RouteCacheCommand.php(66): Illuminate\\Foundation\\Console\\RouteCacheCommand->buildRouteCacheFile(Object(Illuminate\\Routing\\RouteCollection))
+#6 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Console\\RouteCacheCommand->handle()
+#7 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#8 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#9 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#10 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#11 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(136): Illuminate\\Container\\Container->call(Array)
+#12 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\symfony\\console\\Command\\Command.php(298): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#13 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(121): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#14 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(68): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#15 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(28): Illuminate\\Console\\Command->runCommand('route:cache', Array, Object(Illuminate\\Console\\OutputStyle))
+#16 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\OptimizeCommand.php(31): Illuminate\\Console\\Command->call('route:cache')
+#17 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Console\\OptimizeCommand->handle()
+#18 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#19 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#20 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#21 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#22 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(136): Illuminate\\Container\\Container->call(Array)
+#23 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\symfony\\console\\Command\\Command.php(298): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#24 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(121): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#25 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\symfony\\console\\Application.php(1028): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\symfony\\console\\Application.php(299): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\OptimizeCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\symfony\\console\\Application.php(171): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(94): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 C:\\Users\\Administrator\\Documents\\Cods\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Users\\Administrator\\Documents\\Cods\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 {main}
+"} 
