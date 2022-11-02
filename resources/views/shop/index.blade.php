@@ -5,7 +5,7 @@
     <div id="cart-container">
         <div id="cart">
             <i class="fa fa-shopping-cart fa-2x openCloseCart" aria-hidden="true"></i>
-            <button id="emptyCart">Empty Cart</button>
+            <button id="emptyCart" class="btn btn-dark">Empty Cart</button>
         </div>
         <span id="itemCount"></span>
     </div>
@@ -18,7 +18,7 @@
             <div id="cartItems">
                 {{-- <button class="removeItem">Remove Item</button> --}}
             </div>
-            <button class="btn btn-primary" id="checkout">Checkout</button>;
+            <button class="btn btn-primary" id="checkout">Checkout</button>
             <span id="cartTotal"></span>
         </div>
     </div>

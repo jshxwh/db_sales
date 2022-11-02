@@ -7,5 +7,7 @@
             "path": "../../../../xampp/htdocs/js1"
         }
     ],
-    "settings": {}
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "Cods"
+    }
 }
