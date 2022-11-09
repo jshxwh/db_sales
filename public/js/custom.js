@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $("#itable").DataTable({
         ajax: {
-            url: "/api/item",
+            url: "http://localhost:5000/api/v1/items",
             dataSrc: "",
         },
         dom: '<"top"<"left-col"B><"center-col"l><"right-col"f>>rtip',

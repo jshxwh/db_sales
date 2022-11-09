@@ -3551,3 +3551,13 @@
 #30 C:\\Users\\Administrator\\Documents\\Cods\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #31 {main}
 "} 
+[2022-11-03 06:13:20] local.INFO: Array
+(
+    [0] => Array
+        (
+            [item_id] => 2
+            [quantity] => 2
+        )
+
+)
+  
