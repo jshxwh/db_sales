@@ -116,7 +116,7 @@ $(document).ready(function () {
                 if (result)
                     $.ajax({
                         type: "DELETE",
-                        url: "/api/item/" + id,
+                        url: "http://localhost:5000/api/v1/items/" + id,
                         headers: {
                             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
                                 "content"
@@ -143,7 +143,7 @@ $(document).ready(function () {
         e.preventDefault();
         $('#itemModal').modal('show');
         var id = $(this).data("id");
-        var $save = $('#itemSubmit').detach();
+        // var $save = $('#itemSubmit').detach();
         $('#itemupdate').show();
         // $('#btnss').append('<button id="itemupdate" type="submit" class="btn btn-primary">Update</button>');
 
@@ -185,15 +185,17 @@ $(document).ready(function () {
 
         var crow = $("tr td:contains(" + id + ")").closest("tr");
         var table = $('#itable').DataTable();
-        var data = $("#iform").serialize();
+        // var data = $("#iform").serialize();
+        var data = $('#iform')[0];
+        let formData = new FormData(data);
 
         $.ajax({
             type: "PUT",
             cache: false,
             contentType: false,
             processData: false,
-            url: "/api/item/" + id,
-            data: data,
+            url: "http://localhost:5000/api/v1/items/" + id,
+            data: formData,
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
                     "content"
@@ -203,7 +205,8 @@ $(document).ready(function () {
             success: function (data) {
                 console.log(data);
                 $('#itemModal').modal("hide");
-                table.row(crow).data(data).invalidate().draw(false);
+                // table.row(crow).data(data).invalidate().draw(false);
+                table.ajax.reload();
             },
             error: function (error) {
                 console.log(error);
