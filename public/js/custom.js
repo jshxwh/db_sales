@@ -42,7 +42,7 @@ $(document).ready(function () {
             {
                 data: null,
                 render: function (data, type, JsonResultRow, row) {
-                    return '<img src="/storage/' + JsonResultRow.imagePath + '" height="100px" width="100px">';
+                    return '<img src="' + data.imagePath + '" height="100px" width="100px">';
                 }
             },
             {
@@ -153,7 +153,7 @@ $(document).ready(function () {
             processData: false, // Important!
             contentType: false,
             cache: false,
-            url: "/api/item/" + id + "/edit",
+            url: "http://localhost:5000/api/v1/items/" + id,
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
                     "content"
@@ -162,11 +162,11 @@ $(document).ready(function () {
             dataType: "json",
             success: function (data) {
                 console.log(data);
-                $('#item_id').val(data.item_id);
-                $('#description').val(data.description);
-                $('#cost_price').val(data.cost_price);
-                $('#sell_price').val(data.sell_price);
-                $('#title').val(data.title);
+                $('#item_id').val(data[0].item_id);
+                $('#description').val(data[0].description);
+                $('#cost_price').val(data[0].cost_price);
+                $('#sell_price').val(data[0].sell_price);
+                $('#title').val(data[0].title);
                 // $("#imagepath").html(
                 //     `<img src="/storage/${data.imagePath}" width="100" class="img-fluid img-thumbnail">`);
                 // $('#itemimage').val(data.imagePath);
