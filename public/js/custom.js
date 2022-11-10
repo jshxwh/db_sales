@@ -69,7 +69,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: "/api/item/",
+            url: "http://localhost:5000/api/v1/items",
             data: formData,
             contentType: false,
             processData: false,
@@ -81,7 +81,8 @@ $(document).ready(function () {
                 console.log(data);
                 $('#itemModal').modal("hide");
                 var $itable = $('#itable').DataTable();
-                $itable.row.add(data.item).draw(false);
+                // $itable.row.add(data.item).draw(false);
+                $itable.ajax.reload();
             },
             error: function (error) {
                 console.log(error)
